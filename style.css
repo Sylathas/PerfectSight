@@ -1,0 +1,537 @@
+/*-------FONTS-------*/
+
+@font-face {
+    font-family: "Alte Haas Grotesk";
+    src: url("./fonts/AlteHaasGroteskRegular.ttf");
+}
+
+@font-face {
+    font-family: "Alte Haas Grotesk";
+    src: url("./fonts/AlteHaasGroteskBold.ttf");
+    font-weight: bold;
+}
+
+/*------GENERAL------*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    height: 101vh;
+    font-family: "Alte Haas Grotesk";
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*--------START-------*/
+
+#startLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+}
+
+#loading {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*-------NAVBAR-------*/
+
+#navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    border-left: 1px solid black;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar p {
+    font-family: "Alte Haas Grotesk";
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#navbar p:hover {
+    font-family: "Alte Haas Grotesk";
+    font-weight: bold;
+}
+
+.logo {
+    background-image: url('./assets/LOGO.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 1s;
+}
+
+#LogoDesktop {
+    width: 150px;
+    height: 150px;
+}
+
+#LogoMobile {
+    display: none;
+}
+
+.logoMobile {
+    display: none;
+}
+
+#Logo:hover {
+    transform: translate(-50%, -50%) scale(1.1, 1.1);
+}
+
+/*--------GRID--------*/
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.release {
+    border-top: 1px solid black;
+}
+
+/*------RELEASES------*/
+
+.block {
+    top: 0;
+    width: 80%;
+    margin: 0 0 10vh 5vw;
+    display: none;
+    transition: .5s;
+}
+
+.Cover {
+    height: 80vh;
+    width: 80vh;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    opacity: 0;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0;
+}
+
+.coverLoaded {
+    margin-left: 5vw;
+    display: block;
+    opacity: 1;
+}
+
+.Text {
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 10vh;
+    opacity: 0;
+}
+
+.textLoaded {
+    margin-left: 2vw;
+    display: block;
+    opacity: 1;
+}
+
+.Text a {
+    font-family: "Alte Haas Grotesk";
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 1em;
+}
+
+.Text .bandcampLink {
+    font-family: "Alte Haas Grotesk";
+    font-weight: normal;
+    font-size: 3em;
+    text-decoration: underline;
+    color: black;
+    margin-top: 20px;
+}
+
+.Text p:nth-child(2) {
+    font-family: "Alte Haas Grotesk";
+    font-weight: normal;
+    font-size: 1.5em;
+
+}
+
+.Text p:nth-child(3) {
+    font-family: "Alte Haas Grotesk";
+    font-weight: bold;
+    font-size: 2em;
+}
+
+/*-----RELEASEGRID------*/
+
+#releaseGrid {
+    overflow-x: scroll;
+    display: none;
+    height: 20vw;
+    width: 90%;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    background-color: white;
+}
+
+.gridBlock {
+    width: 20vw;
+    height: 20vw;
+    margin: 0;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#open {
+    display: none;
+}
+
+#void {
+    display: none;
+    font-family: "Alte Haas Grotesk";
+    font-weight: bold;
+    font-size: 2em;
+    margin: 5vw;
+}
+
+/*-------CONTACTS-------*/
+
+#contacts {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: 1s;
+    background-color: black;
+    font-size: 30px;
+    display: none;
+}
+
+#contacts p,
+#contacts a {
+    opacity: 0;
+    transition: .5s;
+    color: white;
+    font-size: 30px;
+}
+
+#contacts p {
+    margin-left: 20px;
+    width: 50%;
+}
+
+#contacts a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#devCredits {
+    position: absolute;
+    bottom: 20px;
+    font-size: 20px;
+}
+
+#monogram {
+    width: 200px;
+    height: auto;
+}
+
+/*-----------------------*/
+/*------SECRETPLACE------*/
+/*-----------------------*/
+
+#secretPlace {
+    background-color: black;
+    color: white;
+}
+
+/*---------LOGIN---------*/
+
+#login {
+    position: absolute;
+    left: 5vw;
+    top: 5vw;
+    width: 25vw;
+    font-size: 25px;
+}
+
+#login h1,
+#logged h1 {
+    width: 100vw;
+    font-size: 3em;
+    margin-top: 0;
+}
+
+#login input {
+    border: 1px white solid;
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#login button {
+    background-color: black;
+    color: white;
+    border: 2px white solid;
+    padding: 10px;
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*----------INFO----------*/
+
+#logged {
+    position: absolute;
+    left: 5vw;
+    top: 5vw;
+    width: 100vw;
+    height: auto;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#logged button {
+    background-color: black;
+    color: white;
+    border: 2px white solid;
+    padding: 10px;
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+form {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    border: 1px white solid;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+form textarea {
+    border: 1px white solid;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#PS {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#PS input {
+    width: 90%;
+    margin-left: 10px;
+}
+
+#uploadState {
+    font-weight: normal;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    body {
+        padding-top: 7vh;
+    }
+
+    /*-------NAVBAR-------*/
+
+    #navbar {
+        right: 100%;
+        top: 0;
+        height: 8%;
+        width: 100%;
+        transform: translateX(100%);
+        background-color: white;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-left: none;
+        border-bottom: 1px solid black;
+        z-index: 3;
+    }
+
+    #navbar p {
+        font-size: 18px;
+    }
+
+    .navElement {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navElementTwo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoMobile {
+        background-image: url('./assets/LOGOMobile.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 80%;
+        width: 50px;
+    }
+
+    #blank {
+        display: none;
+    }
+
+    /*--------GRID--------*/
+
+    #grid {
+        height: 92%;
+        transition: .5s;
+    }
+
+    .release {
+        border-top: none;
+    }
+
+    /*------RELEASES------*/
+
+    .block {
+        margin-left: 0;
+    }
+
+    .Cover {
+        height: 100vw;
+        width: 100%;
+    }
+
+    /*-----RELEASEGRID------*/
+
+    #releaseGrid {
+        position: fixed;
+        left: 100vw;
+        top: 5%;
+        height: 95%;
+        width: 50vw;
+        overflow-y: scroll;
+        transition: .5s;
+        border-left: solid 1px black;
+        z-index: 2;
+    }
+
+    .gridBlock {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    #open {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+        border-right: 40px solid black;
+        transition: .5s;
+        z-index: 2;
+    }
+
+    /*-------CONTACTS-------*/
+
+    #contacts {
+        width: 100%;
+        height: 0;
+        z-index: 5;
+        top: 8%;
+    }
+
+    #contacts p {
+        width: 90%;
+        font-size: 20px;
+    }
+
+    #contacts a {
+        font-size: 20px;
+    }
+
+    /*-----------------------*/
+    /*------SECRETPLACE------*/
+    /*-----------------------*/
+
+    /*---------LOGIN---------*/
+
+    input,
+    textarea {
+        font-size: .8em;
+    }
+
+    label {
+        font-size: 1.5em;
+    }
+
+    #login input,
+    #login,
+    #logged,
+    #logged input {
+        width: 90%;
+    }
+
+    /*----------INFO----------*/
+
+    #logged h2 {
+        font-size: 1.5em;
+        hyphens: auto;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    #inputs {
+        width: 100%;
+    }
+
+    #inputs input {
+        width: 95%;
+    }
+}
