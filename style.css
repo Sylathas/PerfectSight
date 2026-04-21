@@ -108,6 +108,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    color: black
 }
 
 .release {
