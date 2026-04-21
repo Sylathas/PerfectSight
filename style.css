@@ -108,7 +108,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    color: black
 }
 
 .release {
@@ -232,6 +231,7 @@ a {
     background-color: white;
     font-size: 30px;
     display: none;
+    color: black;
 }
 
 #contacts p,
