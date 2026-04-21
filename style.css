@@ -23,6 +23,8 @@ body {
     height: 101vh;
     font-family: "Alte Haas Grotesk";
     font-weight: normal;
+    color: white;
+    background-color: black;
 }
 
 a {
@@ -57,7 +59,7 @@ a {
     top: 0;
     height: 100%;
     width: 10%;
-    border-left: 1px solid black;
+    border-left: 1px solid white;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -109,7 +111,7 @@ a {
 }
 
 .release {
-    border-top: 1px solid black;
+    border-top: 1px solid white;
 }
 
 /*------RELEASES------*/
@@ -166,7 +168,7 @@ a {
     font-weight: normal;
     font-size: 3em;
     text-decoration: underline;
-    color: black;
+    color: white;
     margin-top: 20px;
 }
 
@@ -192,8 +194,8 @@ a {
     width: 90%;
     flex-flow: column wrap;
     align-content: flex-start;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
     background-color: white;
 }
 
@@ -226,7 +228,7 @@ a {
     width: 0;
     height: 100%;
     transition: 1s;
-    background-color: black;
+    background-color: white;
     font-size: 30px;
     display: none;
 }
@@ -235,7 +237,6 @@ a {
 #contacts a {
     opacity: 0;
     transition: .5s;
-    color: white;
     font-size: 30px;
 }
 
@@ -384,11 +385,11 @@ form textarea {
         height: 8%;
         width: 100%;
         transform: translateX(100%);
-        background-color: white;
+        background-color: black;
         flex-direction: row;
         justify-content: space-evenly;
         border-left: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid white;
         z-index: 3;
     }
 
@@ -453,7 +454,7 @@ form textarea {
         width: 50vw;
         overflow-y: scroll;
         transition: .5s;
-        border-left: solid 1px black;
+        border-left: solid 1px white;
         z-index: 2;
     }
 
@@ -471,7 +472,7 @@ form textarea {
         height: 0;
         border-top: 40px solid transparent;
         border-bottom: 40px solid transparent;
-        border-right: 40px solid black;
+        border-right: 40px solid white;
         transition: .5s;
         z-index: 2;
     }
