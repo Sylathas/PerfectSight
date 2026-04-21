@@ -239,6 +239,7 @@ a {
     opacity: 0;
     transition: .5s;
     font-size: 30px;
+    color: black;
 }
 
 #contacts p {
