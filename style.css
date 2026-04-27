@@ -119,14 +119,14 @@ a {
 .block {
     top: 0;
     width: 80%;
-    margin: 0 0 10vh 5vw;
+    margin: 0 0 5vw 5vw;
     display: none;
     transition: .5s;
 }
 
 .Cover {
-    height: 80vh;
-    width: 80vh;
+    height: 50vh;
+    width: 50vh;
     cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
@@ -138,6 +138,7 @@ a {
 }
 
 .coverLoaded {
+    margin-top: 5vw;
     margin-left: 5vw;
     display: block;
     opacity: 1;
