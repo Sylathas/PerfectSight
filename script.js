@@ -212,26 +212,28 @@ const db = getFirestore(app);
 
 const releasesRef = collection(db, 'release');
 getDocs(releasesRef).then((snapshot) => {
-    snapshot.forEach((child) => {
-        var name = child.data().name;
-        var cover = child.data().cover;
-        var bandcamp = child.data().bandcamp;
-        var crediti = child.data().crediti;
-        var handles = child.data().handles;
-        var desc = child.data().desc;
-        var counter = child.data().counter;
+    const releases = [];
+    snapshot.forEach((child) => { releases.push(child.data()); });
+    releases.sort((a, b) => parseInt(b.counter) - parseInt(a.counter));
+
+    releases.forEach((data) => {
+        var name = data.name;
+        var cover = data.cover;
+        var bandcamp = data.bandcamp;
+        var crediti = data.crediti;
+        var handles = data.handles;
+        var desc = data.desc;
+        var counter = data.counter;
         var releaseNum = String($("#grid").children().length + 1);
 
         var creditsHTML = "";
         for (var i = 0; i < crediti.length; i++) {
             creditsHTML += crediti[i] + "<br>";
-            //console.log("Crediti: " + creditsHTML);
         }
 
         var handlesHTML = "";
         for (var i = 0; i < handles.length; i++) {
             handlesHTML += "<a href=\"https://www.instagram.com/" + handles[i] + "\" target=\"_blank\"><sup>" + String(i + 1) + "</sup>" + '@' + handles[i] + "</a> <br>";
-            //console.log("Handles: " + handlesHTML);
         }
 
         let newDiv = "<div class=\"release\" id=\"" + releaseNum + "\"><div class=\"block Cover\" id=\"numero release\" onclick=\"myFunction()\">" +
@@ -243,10 +245,10 @@ getDocs(releasesRef).then((snapshot) => {
 
         let newDivGrid = "<div class=\"gridBlock\" id=\"" + releaseNum + "g\"></div>"
 
-        $("#grid").prepend(newDiv);
-        $("#releaseGrid").prepend(newDivGrid);
-        $("#grid").children().first().children().first().css('background-image', 'url("' + cover + '"');
-        $("#releaseGrid").children().first().css('background-image', 'url("' + cover + '"');
+        $("#grid").append(newDiv);
+        $("#releaseGrid").append(newDivGrid);
+        $("#grid").children().last().children().first().css('background-image', 'url("' + cover + '"');
+        $("#releaseGrid").children().last().css('background-image', 'url("' + cover + '"');
     });
     readyToEnd = true;
 });
