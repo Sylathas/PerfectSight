@@ -1,7 +1,6 @@
 //import dependencies
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js'
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
-import { getStorage, ref as storageRef } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
 
 //Check if it's mobile
 window.mobileCheck = function () {
@@ -199,31 +198,28 @@ $('#open').on("click", function () {
 
 //Back-end stuff
 const firebaseConfig = {
-    apiKey: "AIzaSyDrPGPN4HziI-0MhSJ-y2khecmbdFu1NNg",
-    authDomain: "perfect-sight.firebaseapp.com",
-    databaseURL: "https://perfect-sight-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "perfect-sight",
-    storageBucket: "perfect-sight.appspot.com",
-    messagingSenderId: "122633512609",
-    appId: "1:122633512609:web:ba72bd469e82c3b1acb2e0"
+    apiKey: "AIzaSyAzRT24VVIc4l0xrVcO_QLgueFihoAKIGE",
+    authDomain: "perfect-sight-36dd1.firebaseapp.com",
+    projectId: "perfect-sight-36dd1",
+    storageBucket: "perfect-sight-36dd1.firebasestorage.app",
+    messagingSenderId: "672235729116",
+    appId: "1:672235729116:web:2520ea4eb2bdb50b9d0419"
 };
 
 const app = initializeApp(firebaseConfig);
 
-const db = getDatabase();
-const storage = getStorage();
+const db = getFirestore(app);
 
-
-const releasesRef = ref(db, '/releases/');
-onValue(releasesRef, (snapshot) => {
+const releasesRef = collection(db, 'release');
+getDocs(releasesRef).then((snapshot) => {
     snapshot.forEach((child) => {
-        var name = child.key;
-        var cover = child.val().cover;
-        var bandcamp = child.val().bandcamp;
-        var crediti = child.val().crediti;
-        var handles = child.val().handles;
-        var desc = child.val().desc;
-        var counter = child.val().counter;
+        var name = child.data().name;
+        var cover = child.data().cover;
+        var bandcamp = child.data().bandcamp;
+        var crediti = child.data().crediti;
+        var handles = child.data().handles;
+        var desc = child.data().desc;
+        var counter = child.data().counter;
         var releaseNum = String($("#grid").children().length + 1);
 
         var creditsHTML = "";
@@ -251,10 +247,8 @@ onValue(releasesRef, (snapshot) => {
         $("#releaseGrid").prepend(newDivGrid);
         $("#grid").children().first().children().first().css('background-image', 'url("' + cover + '"');
         $("#releaseGrid").children().first().css('background-image', 'url("' + cover + '"');
-
     });
     readyToEnd = true;
-    console.log(readyToEnd);
 });
 
 //start the website at the end of the video animation but after the loading
