@@ -217,6 +217,7 @@ const storage = getStorage();
 const releasesRef = ref(db, '/releases/');
 onValue(releasesRef, (snapshot) => {
     snapshot.forEach((child) => {
+        console.log(child);
         var name = child.key;
         var cover = child.val().cover;
         var bandcamp = child.val().bandcamp;
